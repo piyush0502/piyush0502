@@ -17,28 +17,26 @@
 
 </head>
 <body>
-  <script>
-  _pcq.push(['APIReady', callbackFunction]);
-
-function callbackFunction() {
-      console.log('API Ready');
-console.log(pushcrew.subscriberId);
-   	window.subscriberId = pushcrew.subscriberId;
-    window.location= 'https://google.com';
-      
-      
-     // analytics.identify('', {
-  //name: "",
-    //firstName: "",
-   // lastName: "",
-   // email: "",
-   // phone: "",
-       // pushId: window.subscriberId
-                           
-//});
-    }
-</script>
   
+  <script>
+ window._pcq = window._pcq || [];
+_pcq.push(['subscriptionSuccessCallback',callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+
+function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
+    console.log('User got successfully subscribed.');
+
+    console.log(subscriberId); //will output the user's subscriberId
+
+    console.log(values.status); // SUBSCRIBED or ALREADYSUBSCRIBED
+
+    console.log(values.message) // 'User has subscribed to push notifications.' or 'User is already subscribed to push notifications.'
+
+    console.log('Now you may run code which should be executed once user gets successfully subscribed.');
+  
+  window.location= 'https://google.com'
+}
+    
+    <\script>
   
    <a onclick="_pcq.push(['triggerOptIn']);">
 GET NOTIFICATIONS
