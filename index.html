@@ -18,15 +18,45 @@
 </head>
 <body>
   
-  <script>
- window._pcq = window._pcq || [];
-_pcq.push(['subscriptionSuccessCallback',callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+ <script type = "text/javascript">
 
-function callbackFunctionOnSuccessfulSubscription() {
-  window.location= 'https://google.com'
+    _pcq.push(['APIReady', callbackFunction]); //check for the readiness of the pushcrew API
+function callbackFunction() {
+    var getNotif = document.getElementById("getNotif"); //This will be your button ID from the HTML code
+
+    if (!pushcrew.subscriberId) {
+        console.log("in notifications");
+        getNotif.style.display = "block";
+    } else if (pushcrew.subscriberId === -1) {
+        //You can write the code to display the message for blocked users
+        console.log("in blocked");
+    } else {
+        //You can write the code here to display message for already subscribed users
+        console.log("in already");
+    }
 }
-    
-    </script>
+
+function showOptin() {
+    _pcq.push(['triggerOptIn']);
+}
+
+_pcq.push(['subscriptionSuccessCallback', callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+_pcq.push(['subscriptionFailureCallback', callbackFunctionOnFailedSubscription]); //registers callback function to be called when user gets successfully subscribed
+
+function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
+    getNotif.style.display = "none";
+}
+
+function callbackFunctionOnFailedSubscription(subscriberId, values) {
+    getNotif.style.display = "none";
+}
+
+</script>
+
+
+<!--The below button code is only for representational purpose. You can design your own button with the onClick function - showOptin();-->
+
+<button id="getNotif" onClick="showOptin();" style="display: none;" type="button">Get Notifications</button>
   
    <a onclick="_pcq.push(['triggerOptIn']);">
 GET NOTIFICATIONS
