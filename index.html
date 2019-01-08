@@ -16,10 +16,9 @@
   </script>
 
 <script> 
-  if(pushcrew.isAPIReady) {
+  _pcq.push(['APIReady', callbackFunction]);
+  function callbackFunction() {
     console.log('API is ready');
-
-window._pcq = window._pcq||[]; 
 window._pcq.push(['triggerOptIn']); 
 console.log("script executed");
   }
