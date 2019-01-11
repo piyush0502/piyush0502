@@ -27,7 +27,7 @@ console.log("script executed");
 </head>
 <body>
   
- <script type = "text/javascript">
+ <!--script type = "text/javascript">
 
     _pcq.push(['APIReady', callbackFunction]); //check for the readiness of the pushcrew API
 function callbackFunction() {
@@ -60,7 +60,7 @@ function callbackFunctionOnFailedSubscription(subscriberId, values) {
     getNotif.style.display = "none";
 }
 
-</script>
+</script-->
 
 
 <!--The below button code is only for representational purpose. You can design your own button with the onClick function - showOptin();-->
@@ -73,6 +73,25 @@ GET NOTIFICATIONS
    
 <h1>CHELSEA!!!!</h1>
 <p>The best club ever.</p>
-
+  <body>
+LOADED
 </body>
+<script>
+        window._pcq = window._pcq || []; 
+        _pcq.push(['noTrigger', true]); 
+        _pcq.push(['APIReady', function() { 
+            console.log("PUSH CREW IS READY");
+        }, function(values){ 
+            console.log(values);
+        }]);
+
+        setTimeout(function(){ 
+			console.log('_pcq', _pcq);
+			console.log('pushcrew', pushcrew)
+		}, 500);
+  </script>
+
 </html>
+
+
+
