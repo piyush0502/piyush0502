@@ -67,7 +67,7 @@ function callbackFunctionOnFailedSubscription(subscriberId, values) {
 
 <button id="getNotif" onClick="showOptin();" style="display: none;" type="button">Get Notifications</button>
   
-   <a onclick="_pcq.push(['triggerOptIn']);">
+   <a onclick="_pcq.push(['triggerOptIn',{subscriberSegment: 'homepage', modal: {text: 'Get instant alerts from our website. Please subscribe.', blackenBackground: true}, httpWindowOnly: true}]);">
 GET NOTIFICATIONS
 </a>
    
