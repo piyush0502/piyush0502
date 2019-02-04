@@ -45,27 +45,25 @@ function callbackFunction() {
         console.log("in already");
     }
 }
-</script>
+
   
  
 function showOptin() {
    _pcq.push(['triggerOptIn']);
 }
 <!--script>
-//_pcq.push(['subscriptionSuccessCallback', callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
-//_pcq.push(['subscriptionFailureCallback', callbackFunctionOnFailedSubscription]); //registers callback function to be called when user gets successfully subscribed
+_pcq.push(['subscriptionSuccessCallback', callbackFunctionOnSuccessfulSubscription]); //registers callback function to be called when user gets successfully subscribed
+_pcq.push(['subscriptionFailureCallback', callbackFunctionOnFailedSubscription]); //registers callback function to be called when user gets successfully subscribed
 
-//function callbackFunctionOnSuccessfulSubscription(subscriberId, values) {
-//    getNotif.style.display = "none";
-//}
+function callbackFunctionOnSuccessfulSubscription(subscriberId, values)
+   getNotif.style.display = "none";
+}
 
-//function callbackFunctionOnFailedSubscription(subscriberId, values) {
-  //  getNotif.style.display = "none";
-//}
+function callbackFunctionOnFailedSubscription(subscriberId, values) {
+    getNotif.style.display = "none";
+}
 
-
-
-<script-->
+</script>
 <!--The below button code is only for representational purpose. You can design your own button with the onClick function - showOptin();-->
 
 <button id="getNotif" onClick="showOptin();" style="display: none;" type="button">Get Notifications</button>
