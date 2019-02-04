@@ -27,7 +27,7 @@ console.log("script executed");
 </head>
 <body>
   
- <!--script type = "text/javascript">
+ <script type = "text/javascript">
 
     _pcq.push(['APIReady', callbackFunction]); //check for the readiness of the pushcrew API
 function callbackFunction() {
@@ -41,11 +41,12 @@ function callbackFunction() {
         console.log("in blocked");
     } else {
         //You can write the code here to display message for already subscribed users
+      window.location= 'https://google.com'
         console.log("in already");
     }
 }
 
-function showOptin() {
+/*function showOptin() {
     _pcq.push(['triggerOptIn']);
 }
 
@@ -60,7 +61,7 @@ function callbackFunctionOnFailedSubscription(subscriberId, values) {
     getNotif.style.display = "none";
 }
 
-</script-->
+</script-->*/
 
 
 <!--The below button code is only for representational purpose. You can design your own button with the onClick function - showOptin();-->
